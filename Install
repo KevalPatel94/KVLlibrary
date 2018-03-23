@@ -1,0 +1,3 @@
+Enter below code in your Podfile and then install pod.
+
+pod 'KVLlibrary', '1.1.0'
