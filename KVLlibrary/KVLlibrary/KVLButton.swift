@@ -9,7 +9,7 @@
 import UIKit
 @IBDesignable
 class KVLButton : UIButton{
-    var IsCircle : Bool?
+    var Radi : CGFloat?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,21 +22,24 @@ class KVLButton : UIButton{
             if isCircle == true{
                 layer.cornerRadius = frame.height/2
                 layer.masksToBounds = true
-                IsCircle = true
-            }else
+            }
+            else
             {
-                layer.cornerRadius = 0.0
+                if Radi != nil{
+                    layer.cornerRadius = Radi!
+                }
+                else{
+                    layer.cornerRadius = 0.0
+                }
                 layer.masksToBounds = true
-                IsCircle = false
             }
         }
     }
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
-            if IsCircle == false{
-                layer.cornerRadius = cornerRadius
-                layer.masksToBounds = true
-            }
+            layer.cornerRadius = cornerRadius
+            Radi = cornerRadius
+            layer.masksToBounds = true
         }
     }
     @IBInspectable var borderWidth : CGFloat = 0 {

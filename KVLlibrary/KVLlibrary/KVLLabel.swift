@@ -9,7 +9,7 @@
 import UIKit
 @IBDesignable
 class KVLLabel: UILabel {
-    var IsCircle : Bool?
+    var Radi : CGFloat?
     var colorStart : UIColor?
     var colorend : UIColor?
     override init(frame: CGRect) {
@@ -24,21 +24,24 @@ class KVLLabel: UILabel {
             if isCircle == true{
                 layer.cornerRadius = frame.height/2
                 layer.masksToBounds = true
-                IsCircle = true
-            }else
+            }
+            else
             {
-                layer.cornerRadius = 0.0
+                if Radi != nil{
+                    layer.cornerRadius = Radi!
+                }
+                else{
+                    layer.cornerRadius = 0.0
+                }
                 layer.masksToBounds = true
-                IsCircle = false
             }
         }
     }
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
-            if IsCircle == false{
-                layer.cornerRadius = cornerRadius
-                layer.masksToBounds = true
-            }
+            layer.cornerRadius = cornerRadius
+            Radi = cornerRadius
+            layer.masksToBounds = true
         }
     }
     @IBInspectable var borderWidth : CGFloat = 0 {
@@ -72,6 +75,7 @@ class KVLLabel: UILabel {
         if colorStart != nil && colorend != nil{
             let gLayer = CAGradientLayer()
             gLayer.frame = self.bounds
+            gLayer.frame.size.width = self.frame.width + 150
             gLayer.colors = [colorStart!.cgColor, colorend!.cgColor]
             self.layer.addSublayer(gLayer)
         }

@@ -1,0 +1,16 @@
+PODS:
+  - KVLlibrary (1.0.0)
+
+DEPENDENCIES:
+  - KVLlibrary (from `../KVLlibrary/`)
+
+EXTERNAL SOURCES:
+  KVLlibrary:
+    :path: ../KVLlibrary/
+
+SPEC CHECKSUMS:
+  KVLlibrary: 2fea0feafe80965cddba41b573ca0b821442e5f2
+
+PODFILE CHECKSUM: 454acc109f7197c979bcf40505272a7bf0373023
+
+COCOAPODS: 1.4.0
